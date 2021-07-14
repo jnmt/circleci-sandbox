@@ -2,8 +2,8 @@
 version: 2.1
 jobs:
   build:
-    machine: true
-    image: ubuntu-2004:202104-01
+    machine:
+      image: ubuntu-2004:202104-01
     steps:
       - checkout
       - run:
