@@ -6,6 +6,12 @@ jobs:
     image: ubuntu-2004:202104-01
     steps:
       - checkout
+      - run:
+          name: Echo versions
+          command: |
+            docker --version
+            docker-compose --version
+            docker compose --help
       # - run:
       #     name: Update docker and docker compose
       #     command: |
@@ -15,12 +21,6 @@ jobs:
       #       sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
       #       sudo chmod +x /usr/local/bin/docker-compose
 
-      - run:
-        name: Echo versions
-        command: |
-          docker --version
-          docker-compose --version
-          docker compose --help
 
 # Orchestrate or schedule a set of jobs
 workflows:
