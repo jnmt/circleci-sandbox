@@ -11,7 +11,7 @@ jobs:
           command: |
             docker --version
             docker-compose --version
-            docker compose --help
+            git --version
       # - run:
       #     name: Update docker and docker compose
       #     command: |
