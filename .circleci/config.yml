@@ -3,17 +3,24 @@ version: 2
 jobs:
   build:
     machine: true
-    image: ubuntu-2004:202101-01
+    image: ubuntu-2004:202104-01
     steps:
       - checkout
+      # - run:
+      #     name: Update docker and docker compose
+      #     command: |
+      #       sudo apt-get purge docker-ce containerd.io
+      #       curl -fsSL https://get.docker.com -o get-docker.sh
+      #       sudo sh get-docker.sh
+      #       sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+      #       sudo chmod +x /usr/local/bin/docker-compose
+
       - run:
-          name: Update docker and docker compose
-          command: |
-            sudo apt-get purge docker-ce containerd.io
-            curl -fsSL https://get.docker.com -o get-docker.sh
-            sudo sh get-docker.sh
-            sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-            sudo chmod +x /usr/local/bin/docker-compose
+        name: Echo versions
+        command: |
+          docker --version
+          docker-compose --version
+          docker compose --help
 
 # Orchestrate or schedule a set of jobs
 workflows:
